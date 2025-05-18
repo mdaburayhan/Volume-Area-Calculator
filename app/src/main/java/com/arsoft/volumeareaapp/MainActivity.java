@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Switch;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,8 +55,26 @@ public class MainActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getApplicationContext(), SphereActivity.class);
+                Intent i;
+
+                switch (position){
+                    case 0:
+                        i = new Intent(getApplicationContext(), SphereActivity.class);
+                        break;
+                    case 1:
+                        i = new Intent(getApplicationContext(), CylinderActivity.class);
+                        break;
+                    case 2:
+                        i = new Intent(getApplicationContext(), CubeActivity.class);
+                        break;
+                    case 3:
+                        i = new Intent(getApplicationContext(), PrismActivity.class);
+                        break;
+                    default:
+                        return;
+                }
                 startActivity(i);
+
             }
         });
 
